@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ro" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Părău Studio - Ședințe Foto de Crăciun</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldTheme: {
+                            DEFAULT: '#064e3b',
+                            dark: '#022c22',
+                            light: '#065f46',
+                            accent: '#10b981'
+                        },
+                        rubyTheme: {
+                            DEFAULT: '#881337',
+                            dark: '#4c0519',
+                            light: '#9f1239'
+                        },
+                        goldTheme: {
+                            DEFAULT: '#d97706',
+                            light: '#f59e0b',
+                            dark: '#b45309',
+                            metallic: '#fbbf24'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+        }
+        .gold-border {
+            border-image: linear-gradient(to right, #f59e0b, #d97706, #fbbf24) 1;
+        }
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(6, 78, 59, 0.1), 0 10px 10px -5px rgba(6, 78, 59, 0.04);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #022c22; }
+        ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emeraldTheme-dark via-emeraldTheme to-rubyTheme-dark min-h-full text-slate-100 flex flex-col">
+
+    <!-- Header / Nav -->
+    <header class="bg-emeraldTheme-dark/90 backdrop-blur-md border-b border-goldTheme/30 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center text-white shadow-lg border border-goldTheme-metallic">
+                    <i class="fa-solid fa-camera-retro text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-luxury text-2xl font-bold text-goldTheme-metallic tracking-wide">Foto Părău Studio</h1>
+                    <p class="text-xs text-emerald-200 tracking-widest uppercase">Magia Sărbătorilor de Iarnă</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="switchTab('client')" id="btnTabClient" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-goldTheme text-emeraldTheme-dark shadow-md hover:bg-goldTheme-light">
+                    <i class="fa-solid fa-calendar-days mr-2"></i>Programări Client
+                </button>
+                <button onclick="openAdminLoginModal()" id="btnTabAdmin" class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-emerald-900/60 text-slate-200 border border-emerald-700 hover:bg-emerald-800">
+                    <i class="fa-solid fa-lock mr-2"></i>Panou Admin
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- CLIENT VIEW -->
+        <div id="viewClient" class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden luxury-card p-8 md:p-12 text-slate-900 border-2 border-goldTheme/50">
+                <div class="absolute inset-0 bg-[url('https://placehold.co/1200x600/064e3b/d97706?text=Christmas+Photo+Studio')] opacity-10 bg-cover bg-center"></div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="inline-block px-3 py-1 rounded-full bg-rubyTheme text-white text-xs font-semibold tracking-wider uppercase mb-4 shadow">Ediția de Crăciun 2026</span>
+                    <h2 class="font-luxury text-4xl md:text-5xl font-bold text-emeraldTheme-dark mb-4 leading-tight">Păstrează Amintirile Magice în Cadre de Poveste</h2>
+                    <p class="text-slate-700 text-base md:text-lg mb-6 leading-relaxed">
+                        Rezervă acum ședința foto de Crăciun la Foto Părău Studio. Decoruri feerice, lumini calde și momente de neuitat alături de cei dragi. Completează formularul de mai jos pentru a trimite solicitarea în panoul de administrare.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm font-medium text-emeraldTheme">
+                        <div class="flex items-center"><i class="fa-solid fa-phone text-goldTheme mr-2"></i> 0753814951</div>
+                        <div class="flex items-center"><i class="fa-solid fa-location-dot text-goldTheme mr-2"></i> Studio Profesional</div>
+                        <div class="flex items-center"><i class="fa-solid fa-gift text-rubyTheme mr-2"></i> Cadouri & Surprize</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Section & Packages Preview -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left & Middle: Booking Form -->
+                <div class="lg:col-span-2 luxury-card rounded-3xl p-6 md:p-8 text-slate-900 border border-goldTheme/30">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
+                        <div>
+                            <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark">Formular de Programare</h3>
+                            <p class="text-sm text-slate-600">Completează detaliile pentru ședința ta foto</p>
+                        </div>
+                        <span class="text-xs px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-semibold">Pas cu pas</span>
+                    </div>
+
+                    <form id="bookingForm" onsubmit="submitBooking(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Nume -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Nume și Prenume *</label>
+                                <input type="text" id="clientName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800" placeholder="ex: Popescu Maria">
+                            </div>
+                            <!-- Telefon -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Număr de Telefon *</label>
+                                <input type="tel" id="clientPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800" placeholder="ex: 0712345678">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Tip Ședință Foto -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Tipul de Ședință Foto *</label>
+                                <select id="clientSessionType" onchange="updatePackagesDropdown()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                                    <option value="">-- Selectează tipul --</option>
+                                </select>
+                            </div>
+                            <!-- Pachet Ales -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Pachetul Ales & Preț *</label>
+                                <select id="clientPackage" onchange="onPackageSelectedChange()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                                    <option value="">-- Selectează pachetul --</option>
+                                </select>
+                                <!-- Small separate box for package features listed one under another -->
+                                <div id="packageDescriptionBox" class="mt-2.5 p-3 rounded-xl bg-emerald-50/80 border border-emerald-200 text-xs text-slate-700 hidden">
+                                    <p class="font-bold text-emeraldTheme-dark mb-1 flex items-center"><i class="fa-solid fa-gift text-goldTheme mr-1.5"></i> Ce include acest pachet:</p>
+                                    <div id="packageDescriptionContent" class="space-y-1"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Data Dorită -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Data Dorită *</label>
+                                <input type="date" id="clientDate" onchange="fetchAvailableSlots()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                            </div>
+                            <!-- Ora Dorită -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Ora Dorită & Disponibilitate *</label>
+                                <select id="clientTime" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                                    <option value="">-- Mai întâi alege data --</option>
+                                </select>
+                                <p id="availabilityNotice" class="text-xs mt-1 text-emerald-700 font-medium"></p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Număr persoane -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Număr de persoane prezente *</label>
+                                <input type="number" id="clientPersons" min="1" max="15" value="2" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                                <p id="familyNotice" class="text-xs text-rubyTheme font-semibold mt-1 hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> La pachetul de familie, numărul maxim recomandat este de 4 persoane.</p>
+                            </div>
+                            <!-- Număr ținute per persoană -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Număr de ținute per persoană *</label>
+                                <input type="number" id="clientOutfits" min="1" max="5" value="1" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800">
+                            </div>
+                        </div>
+
+                        <!-- Servicii Extra (Checkbox-uri dinamice) -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Servicii Extra Opționale</label>
+                            <div id="clientExtraServicesContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <!-- Generat din JS -->
+                            </div>
+                        </div>
+
+                        <!-- Detalii suplimentare -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Detalii Suplimentare / Mențiuni</label>
+                            <textarea id="clientDetails" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme focus:border-transparent outline-none bg-white text-slate-800" placeholder="Menționează orice dorință specială..."></textarea>
+                        </div>
+
+                        <!-- Regulament & Trimite -->
+                        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center space-x-3 w-full sm:w-auto">
+                                <button type="button" onclick="openRegulamentModal()" class="px-4 py-2.5 rounded-xl bg-emerald-100 text-emerald-800 font-semibold text-sm hover:bg-emerald-200 transition border border-emerald-300 flex items-center">
+                                    <i class="fa-solid fa-book-open mr-2 text-emerald-600"></i> Citește Regulamentul
+                                </button>
+                                <span id="regulamentStatusBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700">
+                                    <i class="fa-solid fa-circle-xmark mr-1"></i> Necitit
+                                </span>
+                            </div>
+
+                            <button type="submit" id="submitBookingBtn" disabled class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-white bg-slate-400 cursor-not-allowed transition-all duration-300 shadow-md flex items-center justify-center">
+                                <i class="fa-solid fa-paper-plane text-lg mr-2"></i> Trimite Solicitarea
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right: Active Packages & Studio Info -->
+                <div class="space-y-6">
+                    <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                        <h4 class="font-luxury text-xl font-bold text-emeraldTheme-dark mb-4 flex items-center">
+                            <i class="fa-solid fa-gift text-goldTheme mr-2"></i> Pachete Disponibile
+                        </h4>
+                        <div id="sidebarPackagesList" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                            <!-- Generat din JS cu elemente listate unul sub celălalt -->
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-emeraldTheme-dark to-emeraldTheme rounded-3xl p-6 text-white border border-goldTheme/40 shadow-xl">
+                        <h4 class="font-luxury text-xl font-bold text-goldTheme-metallic mb-3">
+                            <i class="fa-solid fa-circle-info mr-2"></i> Asistență & Disponibilitate
+                        </h4>
+                        <p class="text-sm text-emerald-100 mb-4 leading-relaxed">
+                            Ai nevoie de o oră personalizată sau vrei să verifici dacă un interval este liber? Sistemul nostru verifică automat disponibilitatea în timp real.
+                        </p>
+                        <div class="flex items-center space-x-3 text-sm font-semibold bg-emerald-950/60 p-3 rounded-xl border border-emerald-700">
+                            <i class="fa-solid fa-inbox text-goldTheme text-xl"></i>
+                            <div>
+                                <p class="text-xs text-slate-300">Solicitările sunt gestionate aici:</p>
+                                <span class="text-goldTheme">Panou Admin → Programări</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN VIEW (Hidden by default) -->
+        <div id="viewAdmin" class="hidden space-y-8">
+            <!-- Admin Header bar -->
+            <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/40 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <h2 class="font-luxury text-3xl font-bold text-emeraldTheme-dark">Panou de Administrare - Foto Părău Studio</h2>
+                    <p class="text-sm text-slate-600">Gestionează ședințele, pachetele, programările, regulamentul și intervalele blocate.</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-rubyTheme text-white font-medium text-sm shadow hover:bg-rubyTheme-dark transition">
+                        <i class="fa-solid fa-right-from-bracket mr-2"></i> Deconectare
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Nav Tabs -->
+            <div class="flex flex-wrap gap-2 border-b border-emerald-800/40 pb-4">
+                <button onclick="switchAdminTab('appointments')" id="adminTabBtnAppointments" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-goldTheme text-emeraldTheme-dark shadow">
+                    <i class="fa-solid fa-calendar-check mr-2"></i> Programări (<span id="countAppointments">0</span>)
+                </button>
+                <button onclick="switchAdminTab('sessions')" id="adminTabBtnSessions" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800">
+                    <i class="fa-solid fa-camera mr-2"></i> Tipuri Ședințe
+                </button>
+                <button onclick="switchAdminTab('packages')" id="adminTabBtnPackages" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800">
+                    <i class="fa-solid fa-box-open mr-2"></i> Pachete & Prețuri
+                </button>
+                <button onclick="switchAdminTab('extras')" id="adminTabBtnExtras" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800">
+                    <i class="fa-solid fa-star mr-2"></i> Servicii Extra
+                </button>
+                <button onclick="switchAdminTab('schedule')" id="adminTabBtnSchedule" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800">
+                    <i class="fa-solid fa-clock mr-2"></i> Blocare Ore
+                </button>
+                <button onclick="switchAdminTab('rules')" id="adminTabBtnRules" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800">
+                    <i class="fa-solid fa-book mr-2"></i> Regulament
+                </button>
+            </div>
+
+            <!-- TAB 1: APPOINTMENTS -->
+            <div id="adminSectionAppointments" class="space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                        <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark">Gestionare Programări</h3>
+                        <button onclick="openManualBookingModal()" class="px-4 py-2 bg-emerald-700 text-white rounded-xl font-semibold text-sm hover:bg-emerald-800 transition shadow">
+                            <i class="fa-solid fa-plus mr-2"></i> Adaugă Programare Manuală
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-emerald-100/70 text-emeraldTheme-dark text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3 rounded-l-xl">Client & Telefon</th>
+                                    <th class="p-3">Tip / Pachet</th>
+                                    <th class="p-3">Data & Ora</th>
+                                    <th class="p-3">Detalii (Pers/Ținute)</th>
+                                    <th class="p-3">Status</th>
+                                    <th class="p-3 rounded-r-xl text-right">Acțiuni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminAppointmentsTableBody" class="divide-y divide-slate-200 text-sm">
+                                <!-- Generat din JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SESSIONS -->
+            <div id="adminSectionSessions" class="hidden space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark">Tipuri de Ședințe Foto</h3>
+                        <button onclick="openSessionModal()" class="px-4 py-2 bg-emerald-700 text-white rounded-xl font-semibold text-sm hover:bg-emerald-800 transition shadow">
+                            <i class="fa-solid fa-plus mr-2"></i> Adaugă Tip Ședință
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="adminSessionsGrid">
+                        <!-- Generat din JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: PACKAGES -->
+            <div id="adminSectionPackages" class="hidden space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark">Pachete & Prețuri</h3>
+                        <button onclick="openPackageModal()" class="px-4 py-2 bg-emerald-700 text-white rounded-xl font-semibold text-sm hover:bg-emerald-800 transition shadow">
+                            <i class="fa-solid fa-plus mr-2"></i> Adaugă Pachet Nou
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-emerald-100/70 text-emeraldTheme-dark text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3 rounded-l-xl">Tip Ședință</th>
+                                    <th class="p-3">Nume Pachet</th>
+                                    <th class="p-3">Preț (RON)</th>
+                                    <th class="p-3">Descriere</th>
+                                    <th class="p-3 rounded-r-xl text-right">Acțiuni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminPackagesTableBody" class="divide-y divide-slate-200 text-sm">
+                                <!-- Generat din JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: EXTRAS -->
+            <div id="adminSectionExtras" class="hidden space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark">Servicii Extra</h3>
+                        <button onclick="openExtraModal()" class="px-4 py-2 bg-emerald-700 text-white rounded-xl font-semibold text-sm hover:bg-emerald-800 transition shadow">
+                            <i class="fa-solid fa-plus mr-2"></i> Adaugă Serviciu Extra
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="adminExtrasGrid">
+                        <!-- Generat din JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: SCHEDULE / BLOCKED SLOTS -->
+            <div id="adminSectionSchedule" class="hidden space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark mb-2">Blocare Interval Orar Indisponibil</h3>
+                    <p class="text-sm text-slate-600 mb-6">Blochează manual ore (ex: de la 12:00 la 12:30) în care ești ocupat pentru o anumită dată.</p>
+
+                    <form onsubmit="blockTimeSlot(event)" class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Data *</label>
+                            <input type="date" id="blockDate" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">De la ora *</label>
+                            <input type="time" id="blockStartTime" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Până la ora *</label>
+                            <input type="time" id="blockEndTime" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white">
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full py-2.5 bg-rubyTheme text-white rounded-xl font-semibold text-sm hover:bg-rubyTheme-dark transition shadow">
+                                <i class="fa-solid fa-ban mr-1"></i> Blochează Ora
+                            </button>
+                        </div>
+                    </form>
+
+                    <h4 class="font-bold text-emeraldTheme-dark mb-4">Intervale Orare Blocate / Ocupate Manual:</h4>
+                    <div id="blockedSlotsList" class="space-y-2">
+                        <!-- Generat din JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: RULES / REGULAMENT -->
+            <div id="adminSectionRules" class="hidden space-y-6">
+                <div class="luxury-card rounded-3xl p-6 text-slate-900 border border-goldTheme/30">
+                    <h3 class="font-luxury text-2xl font-bold text-emeraldTheme-dark mb-2">Editare Regulament Studio</h3>
+                    <p class="text-sm text-slate-600 mb-6">Modifică textul regulamentului pe care clienții trebuie să îl citească înainte de programare.</p>
+
+                    <form onsubmit="saveRegulament(event)" class="space-y-4">
+                        <textarea id="regulamentTextInput" rows="12" required class="w-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme outline-none text-slate-800 text-sm leading-relaxed bg-white"></textarea>
+                        <button type="submit" class="px-6 py-3 bg-emerald-700 text-white rounded-xl font-bold text-sm hover:bg-emerald-800 transition shadow">
+                            <i class="fa-solid fa-floppy-disk mr-2"></i> Salvează Regulamentul
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL: REGULAMENT -->
+    <div id="regulamentModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl border-2 border-goldTheme overflow-hidden text-slate-900">
+            <div class="p-6 bg-emeraldTheme-dark text-white flex justify-between items-center border-b border-goldTheme/30">
+                <h3 class="font-luxury text-xl font-bold text-goldTheme-metallic">Regulamentul Oficial - Foto Părău Studio</h3>
+                <button onclick="closeRegulamentModal()" class="text-slate-300 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="regulamentModalContent" class="p-6 overflow-y-auto space-y-4 text-sm text-slate-700 leading-relaxed">
+                <!-- Încărcat din localStorage -->
+            </div>
+            <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end space-x-3">
+                <button onclick="acceptRegulament()" class="px-6 py-2.5 bg-emerald-700 text-white rounded-xl font-bold text-sm hover:bg-emerald-800 transition shadow">
+                    <i class="fa-solid fa-check mr-2"></i> Am citit și sunt de acord
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADMIN LOGIN -->
+    <div id="adminLoginModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-goldTheme text-slate-900">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-luxury text-xl font-bold text-emeraldTheme-dark">Autentificare Administrator</h3>
+                <button onclick="closeAdminLoginModal()" class="text-slate-500 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">Introduceți parola de administrator pentru a accesa panoul de control.</p>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Parolă Administrator *</label>
+                    <input type="password" id="adminPasswordInput" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme outline-none text-slate-800" placeholder="Introduceți parola...">
+                </div>
+                <div id="loginErrorMsg" class="text-xs text-rubyTheme font-semibold hidden">Parolă incorectă! Încercați din nou.</div>
+                <button type="submit" class="w-full py-3 bg-emeraldTheme text-white rounded-xl font-bold text-sm hover:bg-emeraldTheme-dark transition shadow">
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i> Autentificare
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: EDIT/ADD SESSION TYPE -->
+    <div id="sessionModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-goldTheme text-slate-900">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="sessionModalTitle" class="font-luxury text-xl font-bold text-emeraldTheme-dark">Adaugă Tip Ședință</h3>
+                <button onclick="closeSessionModal()" class="text-slate-500 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="saveSessionType(event)" class="space-y-4">
+                <input type="hidden" id="sessionEditId">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nume Tip Ședință *</label>
+                    <input type="text" id="sessionNameInput" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme outline-none text-sm text-slate-800" placeholder="ex: Familie, Cuplu, Copii">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Descriere Scurtă</label>
+                    <textarea id="sessionDescInput" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-goldTheme outline-none text-sm text-slate-800" placeholder="Detalii despre ședință..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emeraldTheme text-white rounded-xl font-bold text-sm hover:bg-emeraldTheme-dark transition shadow">
+                    Salvează Tip Ședință
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: EDIT/ADD PACKAGE -->
+    <div id="packageModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-goldTheme text-slate-900">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="packageModalTitle" class="font-luxury text-xl font-bold text-emeraldTheme-dark">Adaugă Pachet Nou</h3>
+                <button onclick="closePackageModal()" class="text-slate-500 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="savePackage(event)" class="space-y-4">
+                <input type="hidden" id="packageEditId">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Alege Tip Ședință *</label>
+                    <select id="packageSessionTypeSelect" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                        <!-- Generat din JS -->
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nume Pachet *</label>
+                    <input type="text" id="packageNameInput" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800" placeholder="ex: Pachet Standard / Pachet VIP">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Preț (RON) *</label>
+                    <input type="number" id="packagePriceInput" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800" placeholder="ex: 350">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Descriere Pachet *</label>
+                    <textarea id="packageDescInput" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800" placeholder="ex: 10 fotografii editate, 45 minute..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emeraldTheme text-white rounded-xl font-bold text-sm hover:bg-emeraldTheme-dark transition shadow">
+                    Salvează Pachetul
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: EDIT/ADD EXTRA SERVICE -->
+    <div id="extraModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-goldTheme text-slate-900">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="extraModalTitle" class="font-luxury text-xl font-bold text-emeraldTheme-dark">Adaugă Serviciu Extra</h3>
+                <button onclick="closeExtraModal()" class="text-slate-500 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="saveExtraService(event)" class="space-y-4">
+                <input type="hidden" id="extraEditId">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nume Serviciu Extra *</label>
+                    <input type="text" id="extraNameInput" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800" placeholder="ex: Cadru suplimentar editat">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Preț suplimentar (RON) *</label>
+                    <input type="number" id="extraPriceInput" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm bg-white text-slate-800" placeholder="ex: 50">
+                </div>
+                <button type="submit" class="w-full py-3 bg-emeraldTheme text-white rounded-xl font-bold text-sm hover:bg-emeraldTheme-dark transition shadow">
+                    Salvează Serviciu Extra
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: MANUAL BOOKING BY ADMIN -->
+    <div id="manualBookingModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border-2 border-goldTheme text-slate-900 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-luxury text-xl font-bold text-emeraldTheme-dark">Adăugare Programare Manuală</h3>
+                <button onclick="closeManualBookingModal()" class="text-slate-500 hover:text-slate-800 text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form onsubmit="saveManualBooking(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nume Client *</label>
+                    <input type="text" id="manualName" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Telefon Client *</label>
+                    <input type="tel" id="manualPhone" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Tip Ședință *</label>
+                        <select id="manualSessionType" onchange="updateManualPackages()" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800"></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Pachet *</label>
+                        <select id="manualPackage" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800"></select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Data *</label>
+                        <input type="date" id="manualDate" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Ora *</label>
+                        <input type="time" id="manualTime" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Persoane *</label>
+                        <input type="number" id="manualPersons" min="1" value="2" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Ținute per persoană *</label>
+                        <input type="number" id="manualOutfits" min="1" value="1" required class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Detalii suplimentare</label>
+                    <textarea id="manualDetails" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-sm bg-white text-slate-800"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emeraldTheme text-white rounded-xl font-bold text-sm hover:bg-emeraldTheme-dark transition shadow">
+                    Salvează Programarea
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-emeraldTheme-dark text-slate-300 py-8 border-t border-goldTheme/30 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <h5 class="font-luxury text-xl font-bold text-goldTheme-metallic">Foto Părău Studio</h5>
+            <p class="text-xs text-slate-400">© 2026 Toate drepturile rezervate. Magia Crăciunului surprinsă în cadre profesionale de neuitat.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Persistent backend configuration. Keep empty to use local fallback during offline development.
+        // For live/public hosting, place api.php in the same folder as this HTML.
+        const PARAU_API_URL = './api.php';
+        let parauCloudOnline = false;
+
+        // Default initial data if localStorage is empty
+        const defaultSessions = [
+            { id: "s1", name: "Familie", desc: "Ședință foto festivă pentru întreaga familie în decor de poveste" },
+            { id: "s2", name: "Cuplu", desc: "Momente romantice și calde alături de persoana iubită" },
+            { id: "s3", name: "Copii", desc: "Bucuria celor mici în studioul nostru magic de Crăciun" }
+        ];
+
+        const defaultPackages = [
+            { id: "p1", sessionId: "s1", name: "Pachet Familie Magic", price: 350, desc: "45 min, 15 fotografii editate digital, decor de Crăciun." },
+            { id: "p2", sessionId: "s1", name: "Pachet Familie Deluxe", price: 500, desc: "60 min, 30 fotografii editate, album inclus, 3 decoruri." },
+            { id: "p3", sessionId: "s2", name: "Pachet Cuplu Romantic", price: 300, desc: "40 min, 12 fotografii editate, lumini calde și cadouri." },
+            { id: "p4", sessionId: "s3", name: "Pachet Copii Veseli", price: 250, desc: "30 min, 10 fotografii editate, accesorii tematice." }
+        ];
+
+        const defaultExtras = [
+            { id: "e1", name: "Cadru suplimentar editat", price: 40 },
+            { id: "e2", name: "Galerie expres în 24 de ore", price: 100 },
+            { id: "e3", name: "Ședință video scurtă (Reels)", price: 150 }
+        ];
+
+        const defaultRegulament = `REGULAMENTUL OFICIAL - FOTO PĂRĂU STUDIO
+
+1. PROGRAMĂRI ȘI CONFIRMARE:
+Toate solicitările de programare se efectuează online și sunt verificate în panoul de administrare. Vă rugăm să vă prezentați cu 5-10 minute înainte de ora programată pentru a nu afecta intervalul orar dedicat ședinței dumneavoastră.
+
+2. ÎNTÂRZIERI:
+În caz de întârziere, timpul ședinței foto se va reduce corespunzător pentru a respecta programul clienților următori.
+
+3. ȚINUTE ȘI ACCESORII:
+Numărul de ținute este cel stabilit prin pachetul ales. Vă rugăm să aduceți ținutele curate și călcate. Pentru pachetul de familie, recomandăm maximum 4 persoane pentru a asigura confortul optim în decor.
+
+4. ANULARE SAU REPROGRAMARE:
+Pentru anulare sau reprogramare, vă rugăm să transmiteți solicitarea prin formular sau să actualizați programarea din panoul de administrare.
+
+5. LIVRARE FOTOGRAFII:
+Fotografiile selectate pentru editare vor fi livrate în format digital în termen de maxim 7 zile lucrătoare de la selecție.`;
+
+        // Initialize LocalStorage state
+        if (!localStorage.getItem('parau_sessions')) {
+            setStored('parau_sessions', JSON.stringify(defaultSessions));
+        }
+        if (!localStorage.getItem('parau_packages')) {
+            setStored('parau_packages', JSON.stringify(defaultPackages));
+        }
+        if (!localStorage.getItem('parau_extras')) {
+            setStored('parau_extras', JSON.stringify(defaultExtras));
+        }
+        if (!localStorage.getItem('parau_regulament')) {
+            setStored('parau_regulament', defaultRegulament);
+        }
+        if (!localStorage.getItem('parau_appointments')) {
+            setStored('parau_appointments', JSON.stringify([]));
+        }
+        if (!localStorage.getItem('parau_blocked')) {
+            setStored('parau_blocked', JSON.stringify([]));
+        }
+
+        let isRegulamentRead = false;
+        let isAdminLoggedIn = false;
+
+        async function verifyPassword(inputPassword) {
+            if (!inputPassword) return false;
+            try {
+                const response = await fetch(`${PARAU_API_URL}?action=login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ password: inputPassword })
+                });
+                if (!response.ok) return false;
+                const result = await response.json();
+                return result && result.ok === true;
+            } catch (error) {
+                console.error('Admin authentication unavailable:', error);
+                return false;
+            }
+        }
+
+        async function loadCloudState() {
+            try {
+                const response = await fetch(`${PARAU_API_URL}?action=state`, { credentials: 'same-origin', cache: 'no-store' });
+                if (!response.ok) throw new Error('Backend indisponibil');
+                const state = await response.json();
+                Object.entries(state || {}).forEach(([key, value]) => {
+                    if (value !== null && value !== undefined) localStorage.setItem(key, value);
+                });
+                parauCloudOnline = true;
+                return true;
+            } catch (error) {
+                parauCloudOnline = false;
+                console.warn('Se folosește salvarea locală:', error);
+                return false;
+            }
+        }
+
+        async function setStored(key, value) {
+            localStorage.setItem(key, value);
+            if (!parauCloudOnline) return;
+            try {
+                const response = await fetch(`${PARAU_API_URL}?action=set`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ key, value })
+                });
+                if (!response.ok) throw new Error('Salvare cloud eșuată');
+            } catch (error) {
+                console.error('Salvarea live a eșuat; datele rămân în memoria locală:', error);
+            }
+        }
+
+        async function deleteStored(key) {
+            localStorage.removeItem(key);
+            if (!parauCloudOnline) return;
+            try {
+                await fetch(`${PARAU_API_URL}?action=delete`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ key })
+                });
+            } catch (error) {
+                console.error('Ștergerea live a eșuat:', error);
+            }
+        }
+
+        // Helper function to format date nicely in Romanian (e.g., "9 Decembrie 2026")
+        function formatDateRo(dateStr) {
+            if (!dateStr) return '';
+            try {
+                const [year, month, day] = dateStr.split('-');
+                if (!year || !month || !day) return dateStr;
+                const monthsRo = [
+                    "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+                    "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"
+                ];
+                const monthName = monthsRo[parseInt(month, 10) - 1] || month;
+                return `${parseInt(day, 10)} ${monthName} ${year}`;
+            } catch (e) {
+                return dateStr;
+            }
+        }
+
+        // On Load Initialization
+        window.onload = async function() {
+            await loadCloudState();
+            renderClientFormDropdowns();
+            renderSidebarPackages();
+            renderExtrasCheckboxes();
+            
+            // Set minimum date for booking to today
+            const todayStr = new Date().toISOString().split('T')[0];
+            const clientDateEl = document.getElementById('clientDate');
+            if(clientDateEl) clientDateEl.min = todayStr;
+            const blockDateEl = document.getElementById('blockDate');
+            if(blockDateEl) blockDateEl.min = todayStr;
+            const manualDateEl = document.getElementById('manualDate');
+            if(manualDateEl) manualDateEl.min = todayStr;
+        };
+
+        function switchTab(tab) {
+            const viewClient = document.getElementById('viewClient');
+            const viewAdmin = document.getElementById('viewAdmin');
+            const btnTabClient = document.getElementById('btnTabClient');
+            const btnTabAdmin = document.getElementById('btnTabAdmin');
+
+            if(tab === 'client') {
+                viewClient.classList.remove('hidden');
+                viewAdmin.classList.add('hidden');
+                btnTabClient.className = "px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-goldTheme text-emeraldTheme-dark shadow-md hover:bg-goldTheme-light";
+                btnTabAdmin.className = "px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-emerald-900/60 text-slate-200 border border-emerald-700 hover:bg-emerald-800";
+            }
+        }
+
+        function switchAdminTab(subTab) {
+            const sections = ['appointments', 'sessions', 'packages', 'extras', 'schedule', 'rules'];
+            sections.forEach(sec => {
+                const el = document.getElementById(`adminSection${sec.charAt(0).toUpperCase() + sec.slice(1)}`);
+                const btn = document.getElementById(`adminTabBtn${sec.charAt(0).toUpperCase() + sec.slice(1)}`);
+                if(sec === subTab) {
+                    if(el) el.classList.remove('hidden');
+                    if(btn) btn.className = "px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-goldTheme text-emeraldTheme-dark shadow";
+                } else {
+                    if(el) el.classList.add('hidden');
+                    if(btn) btn.className = "px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-emerald-900/60 text-slate-200 hover:bg-emerald-800";
+                }
+            });
+            renderAdminData();
+        }
+
+        function openAdminLoginModal() {
+            if(isAdminLoggedIn) {
+                document.getElementById('viewClient').classList.add('hidden');
+                document.getElementById('viewAdmin').classList.remove('hidden');
+                switchAdminTab('appointments');
+            } else {
+                document.getElementById('adminLoginModal').classList.remove('hidden');
+            }
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('loginErrorMsg').classList.add('hidden');
+        }
+
+        async function handleAdminLogin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('adminPasswordInput').value;
+            const isValid = await verifyPassword(pass);
+
+            if(isValid) {
+                isAdminLoggedIn = true;
+                await loadCloudState();
+                closeAdminLoginModal();
+                document.getElementById('viewClient').classList.add('hidden');
+                document.getElementById('viewAdmin').classList.remove('hidden');
+                switchAdminTab('appointments');
+            } else {
+                document.getElementById('loginErrorMsg').textContent = parauCloudOnline
+                    ? 'Parolă incorectă! Încercați din nou.'
+                    : 'Serverul de administrare nu este disponibil. Verificați că api.php este publicat lângă acest fișier.';
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            switchTab('client');
+            const btnTabAdmin = document.getElementById('btnTabAdmin');
+            btnTabAdmin.className = "px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-emerald-900/60 text-slate-200 border border-emerald-700 hover:bg-emerald-800";
+        }
+
+        function renderClientFormDropdowns() {
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const select = document.getElementById('clientSessionType');
+            if(!select) return;
+            select.innerHTML = '<option value="">-- Selectează tipul --</option>';
+            sessions.forEach(s => {
+                select.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+            });
+
+            // Also populate manual modal session type
+            const manualSelect = document.getElementById('manualSessionType');
+            if(manualSelect) {
+                manualSelect.innerHTML = '<option value="">-- Alege --</option>';
+                sessions.forEach(s => {
+                    manualSelect.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+                });
+            }
+        }
+
+        function updatePackagesDropdown() {
+            const sessionName = document.getElementById('clientSessionType').value;
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            const packageSelect = document.getElementById('clientPackage');
+            packageSelect.innerHTML = '<option value="">-- Selectează pachetul --</option>';
+
+            // Hide box when session changes
+            document.getElementById('packageDescriptionBox').classList.add('hidden');
+
+            const sessionObj = sessions.find(s => s.name === sessionName);
+            if(sessionObj) {
+                const filtered = packages.filter(p => p.sessionId === sessionObj.id);
+                filtered.forEach(p => {
+                    packageSelect.innerHTML += `<option value="${p.name} - ${p.price} RON" data-desc="${escapeHtml(p.desc)}">${p.name} (${p.price} RON)</option>`;
+                });
+            }
+            checkFamilyLimit();
+        }
+
+        function onPackageSelectedChange() {
+            const packageSelect = document.getElementById('clientPackage');
+            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+            const descBox = document.getElementById('packageDescriptionBox');
+            const descContent = document.getElementById('packageDescriptionContent');
+
+            if (!packageSelect.value || !selectedOption) {
+                descBox.classList.add('hidden');
+                descContent.innerHTML = '';
+                checkFamilyLimit();
+                return;
+            }
+
+            const rawDesc = selectedOption.getAttribute('data-desc') || "Fără detalii suplimentare pentru acest pachet.";
+            
+            // Split description by commas, bullet points, or semicolons so items appear one under another
+            let items = rawDesc.split(/,|\.|;|\n/).map(item => item.trim()).filter(item => item.length > 0);
+            
+            if (items.length === 0) {
+                items = [rawDesc];
+            }
+
+            descContent.innerHTML = '';
+            items.forEach(item => {
+                descContent.innerHTML += `<div class="flex items-start"><i class="fa-solid fa-check text-emerald-600 mt-0.5 mr-2"></i><span>${item}</span></div>`;
+            });
+
+            descBox.classList.remove('hidden');
+            checkFamilyLimit();
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function checkFamilyLimit() {
+            const sessionName = document.getElementById('clientSessionType').value;
+            const packageText = document.getElementById('clientPackage').value;
+            const familyNotice = document.getElementById('familyNotice');
+
+            if(sessionName.toLowerCase().includes('familie') || packageText.toLowerCase().includes('familie')) {
+                familyNotice.classList.remove('hidden');
+            } else {
+                familyNotice.classList.add('hidden');
+            }
+        }
+
+        function renderSidebarPackages() {
+            const packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const container = document.getElementById('sidebarPackagesList');
+            if(!container) return;
+
+            container.innerHTML = '';
+            if(packages.length === 0) {
+                container.innerHTML = '<p class="text-xs text-slate-500 italic">Nu există pachete adăugate încă.</p>';
+                return;
+            }
+
+            packages.forEach(p => {
+                const sObj = sessions.find(s => s.id === p.sessionId);
+                const sName = sObj ? sObj.name : 'General';
+                
+                // Parse package description items to display each feature stacked one under another with an icon
+                const rawDesc = p.desc || '';
+                let items = rawDesc.split(/,|\.|;|\n/).map(item => item.trim()).filter(item => item.length > 0);
+                if (items.length === 0) {
+                    items = [rawDesc];
+                }
+                
+                let descListHtml = '';
+                items.forEach(item => {
+                    descListHtml += `<div class="flex items-start text-xs text-slate-600 mt-1"><i class="fa-solid fa-check text-emerald-600 mt-0.5 mr-2 flex-shrink-0"></i><span>${item}</span></div>`;
+                });
+
+                container.innerHTML += `
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-md">${sName}</span>
+                            <span class="font-bold text-rubyTheme text-sm">${p.price} RON</span>
+                        </div>
+                        <h5 class="font-bold text-emeraldTheme-dark text-base">${p.name}</h5>
+                        <div class="space-y-0.5 pt-1 border-t border-slate-200/60">
+                            ${descListHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderExtrasCheckboxes() {
+            const extras = JSON.parse(localStorage.getItem('parau_extras')) || [];
+            const container = document.getElementById('clientExtraServicesContainer');
+            if(!container) return;
+
+            container.innerHTML = '';
+            if(extras.length === 0) {
+                container.innerHTML = '<span class="text-xs text-slate-500 italic">Nu sunt servicii extra configurate.</span>';
+                return;
+            }
+
+            extras.forEach(e => {
+                container.innerHTML += `
+                    <label class="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer bg-white p-2.5 rounded-xl border border-slate-200 hover:border-goldTheme transition">
+                        <input type="checkbox" name="clientExtras" value="${e.name} (${e.price} RON)" class="w-4 h-4 text-emeraldTheme rounded focus:ring-goldTheme">
+                        <span class="flex-grow">${e.name}</span>
+                        <span class="font-bold text-xs text-goldTheme-dark">+${e.price} RON</span>
+                    </label>
+                `;
+            });
+        }
+
+        async function fetchAvailableSlots() {
+            const dateStr = document.getElementById('clientDate').value;
+            const timeSelect = document.getElementById('clientTime');
+            const notice = document.getElementById('availabilityNotice');
+            if(!dateStr) return;
+
+            const standardSlots = Array.from({ length: 13 }, (_, index) => {
+                const hour = 9 + index;
+                const start = String(hour).padStart(2, '0') + ':00';
+                const end = String(hour + 1).padStart(2, '0') + ':00';
+                return `${start} - ${end}`;
+            });
+
+            let dateAppointments = [];
+            let dateBlocked = [];
+            try {
+                if(parauCloudOnline) {
+                    const response = await fetch(`${PARAU_API_URL}?action=availability&date=${encodeURIComponent(dateStr)}`, { credentials: 'same-origin', cache: 'no-store' });
+                    if(!response.ok) throw new Error('Disponibilitatea live nu este disponibilă');
+                    const remote = await response.json();
+                    dateAppointments = remote.appointments || [];
+                    dateBlocked = remote.blocked || [];
+                } else {
+                    const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+                    const blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+                    dateAppointments = appointments.filter(a => a.date === dateStr && a.status === 'Confirmată');
+                    dateBlocked = blocked.filter(b => b.date === dateStr);
+                }
+            } catch (error) {
+                const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+                const blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+                dateAppointments = appointments.filter(a => a.date === dateStr && a.status === 'Confirmată');
+                dateBlocked = blocked.filter(b => b.date === dateStr);
+            }
+
+            timeSelect.innerHTML = '<option value="">-- Alege ora disponibilă --</option>';
+            let availableCount = 0;
+
+            standardSlots.forEach(slot => {
+                const startTimeSlot = slot.split(' - ')[0];
+                const isTaken = dateAppointments.some(a => (a.time || '').split(' - ')[0] === startTimeSlot);
+                const isBlocked = dateBlocked.some(b => startTimeSlot >= b.startTime && startTimeSlot < b.endTime);
+                if(!isTaken && !isBlocked) {
+                    timeSelect.innerHTML += `<option value="${slot}">${slot} (Disponibil)</option>`;
+                    availableCount++;
+                }
+            });
+
+            if(availableCount > 0) {
+                notice.textContent = `Sunt ${availableCount} intervale disponibile în data selectată.`;
+                notice.className = "text-xs mt-1 text-emerald-700 font-medium";
+            } else {
+                notice.textContent = `Ne pare rău, toate orele sunt ocupate în această zi. Vă rugăm să alegeți altă dată.`;
+                notice.className = "text-xs mt-1 text-rubyTheme font-semibold";
+            }
+        }
+
+        function openRegulamentModal() {
+            const content = localStorage.getItem('parau_regulament') || defaultRegulament;
+            document.getElementById('regulamentModalContent').innerHTML = `<pre class="whitespace-pre-wrap font-sans">${content}</pre>`;
+            document.getElementById('regulamentModal').classList.remove('hidden');
+        }
+
+        function closeRegulamentModal() {
+            document.getElementById('regulamentModal').classList.add('hidden');
+        }
+
+        function acceptRegulament() {
+            isRegulamentRead = true;
+            closeRegulamentModal();
+            const badge = document.getElementById('regulamentStatusBadge');
+            badge.className = "text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-700";
+            badge.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Citit & Acceptat`;
+
+            const btn = document.getElementById('submitBookingBtn');
+            btn.disabled = false;
+            btn.className = "w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-white bg-emeraldTheme hover:bg-emeraldTheme-dark transition-all duration-300 shadow-md flex items-center justify-center cursor-pointer";
+        }
+
+        async function submitBooking(event) {
+            event.preventDefault();
+            if(!isRegulamentRead) {
+                alert("Vă rugăm să citiți regulamentul înainte de a trimite solicitarea!");
+                return;
+            }
+
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const sessionType = document.getElementById('clientSessionType').value;
+            const packageVal = document.getElementById('clientPackage').value;
+            const date = document.getElementById('clientDate').value;
+            const time = document.getElementById('clientTime').value;
+            const persons = document.getElementById('clientPersons').value;
+            const outfits = document.getElementById('clientOutfits').value;
+            const details = document.getElementById('clientDetails').value.trim() || "Fără detalii suplimentare";
+
+            if(!name || !phone || !sessionType || !packageVal || !date || !time) {
+                alert("Vă rugăm să completați toate câmpurile obligatorii.");
+                return;
+            }
+
+            const extraCheckboxes = document.querySelectorAll('input[name="clientExtras"]:checked');
+            const extrasArr = [];
+            extraCheckboxes.forEach(cb => extrasArr.push(cb.value));
+            const extrasStr = extrasArr.length > 0 ? extrasArr.join(', ') : "Niciunul";
+
+            const newApp = {
+                id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+                name, phone, sessionType, packageVal, date, time, persons, outfits, extras: extrasStr, details,
+                status: "În așteptare",
+                createdAt: new Date().toISOString()
+            };
+
+            if(parauCloudOnline) {
+                try {
+                    const response = await fetch(`${PARAU_API_URL}?action=appointment_create`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'same-origin',
+                        body: JSON.stringify(newApp)
+                    });
+                    const result = await response.json();
+                    if(!response.ok || !result.ok) {
+                        alert(result.message || "Această oră nu mai este disponibilă. Vă rugăm să alegeți o altă oră.");
+                        await fetchAvailableSlots();
+                        return;
+                    }
+                } catch (error) {
+                    alert("Nu s-a putut salva solicitarea online. Verificați conexiunea și încercați din nou.");
+                    return;
+                }
+            } else {
+                const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+                const blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+                const startTime = time.split(' - ')[0];
+                const alreadyConfirmed = appointments.some(a => a.date === date && a.status === 'Confirmată' && (a.time || '').split(' - ')[0] === startTime);
+                const alreadyBlocked = blocked.some(b => b.date === date && startTime >= b.startTime && startTime < b.endTime);
+                if(alreadyConfirmed || alreadyBlocked) {
+                    alert("Această oră nu mai este disponibilă. Vă rugăm să alegeți o altă oră.");
+                    await fetchAvailableSlots();
+                    return;
+                }
+                appointments.push(newApp);
+                localStorage.setItem('parau_appointments', JSON.stringify(appointments));
+            }
+
+            document.getElementById('bookingForm').reset();
+            isRegulamentRead = false;
+            const badge = document.getElementById('regulamentStatusBadge');
+            badge.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700";
+            badge.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> Necitit`;
+            const btn = document.getElementById('submitBookingBtn');
+            btn.disabled = true;
+            btn.className = "w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-white bg-slate-400 cursor-not-allowed transition-all duration-300 shadow-md flex items-center justify-center";
+            alert(parauCloudOnline ? "Solicitarea a fost salvată live și este disponibilă în panoul de administrare." : "Solicitarea a fost salvată local. Pentru salvare live, publicați și api.php pe același server.");
+        }
+
+        function renderAdminData() {
+            // Appointments count & table
+            const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+            document.getElementById('countAppointments').textContent = appointments.length;
+            const appBody = document.getElementById('adminAppointmentsTableBody');
+            appBody.innerHTML = '';
+
+            if(appointments.length === 0) {
+                appBody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-slate-500 italic">Nu există programări înregistrate.</td></tr>`;
+            } else {
+                appointments.forEach(a => {
+                    let statusBadge = '';
+                    if(a.status === 'Confirmată') statusBadge = '<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold">Confirmată</span>';
+                    else if(a.status === 'Anulat') statusBadge = '<span class="px-2.5 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold">Anulat</span>';
+                    else statusBadge = '<span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">În așteptare</span>';
+
+                    const formattedDate = formatDateRo(a.date);
+
+                    appBody.innerHTML += `
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-3">
+                                <div class="font-bold text-emeraldTheme-dark">${a.name}</div>
+                                <div class="text-xs text-slate-500"><i class="fa-solid fa-phone mr-1"></i>${a.phone}</div>
+                            </td>
+                            <td class="p-3">
+                                <div class="font-semibold">${a.sessionType}</div>
+                                <div class="text-xs text-slate-600">${a.packageVal}</div>
+                            </td>
+                            <td class="p-3">
+                                <div class="font-semibold text-goldTheme-dark">${formattedDate}</div>
+                                <div class="text-xs text-slate-600">${a.time}</div>
+                            </td>
+                            <td class="p-3 text-xs text-slate-600">
+                                <div>Persoane: ${a.persons}</div>
+                                <div>Ținute: ${a.outfits}</div>
+                                <div>Extra: ${a.extras}</div>
+                            </td>
+                            <td class="p-3">${statusBadge}</td>
+                            <td class="p-3 text-right space-x-1">
+                                ${a.status === 'În așteptare' ? `<button onclick="approveAppointment('${a.id}')" title="Aprobă programarea și blochează ora" class="p-1.5 bg-emerald-100 text-emerald-800 rounded-lg hover:bg-emerald-200 transition"><i class="fa-solid fa-check"></i></button>` : ''}
+                                ${a.status === 'Confirmată' ? `<button onclick="updateAppointmentStatus('${a.id}', 'Anulat')" title="Anulează programarea" class="p-1.5 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition"><i class="fa-solid fa-ban"></i></button>` : ''}
+                                ${a.status === 'În așteptare' ? `<button onclick="updateAppointmentStatus('${a.id}', 'Anulat')" title="Respinge solicitarea" class="p-1.5 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition"><i class="fa-solid fa-ban"></i></button>` : ''}
+                                <button onclick="deleteAppointment('${a.id}')" title="Șterge" class="p-1.5 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // Sessions Grid
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const sGrid = document.getElementById('adminSessionsGrid');
+            sGrid.innerHTML = '';
+            sessions.forEach(s => {
+                sGrid.innerHTML += `
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-3">
+                        <div>
+                            <h4 class="font-bold text-emeraldTheme-dark text-lg">${s.name}</h4>
+                            <p class="text-xs text-slate-600 mt-1">${s.desc || 'Fără descriere'}</p>
+                        </div>
+                        <div class="flex justify-end space-x-2 pt-2 border-t border-slate-200">
+                            <button onclick="editSessionType('${s.id}')" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-xs font-semibold hover:bg-amber-200">Editează</button>
+                            <button onclick="deleteSessionType('${s.id}')" class="px-3 py-1 bg-red-100 text-red-800 rounded-lg text-xs font-semibold hover:bg-red-200">Șterge</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Packages Table
+            const packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            const pBody = document.getElementById('adminPackagesTableBody');
+            pBody.innerHTML = '';
+            packages.forEach(p => {
+                const sObj = sessions.find(s => s.id === p.sessionId);
+                const sName = sObj ? sObj.name : 'General';
+                pBody.innerHTML += `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="p-3 font-semibold text-emeraldTheme-dark">${sName}</td>
+                        <td class="p-3 font-bold">${p.name}</td>
+                        <td class="p-3 text-rubyTheme font-bold">${p.price} RON</td>
+                        <td class="p-3 text-xs text-slate-600">${p.desc}</td>
+                        <td class="p-3 text-right space-x-1">
+                            <button onclick="editPackage('${p.id}')" class="p-1.5 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition"><i class="fa-solid fa-pen"></i></button>
+                            <button onclick="deletePackage('${p.id}')" class="p-1.5 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            // Extras Grid
+            const extras = JSON.parse(localStorage.getItem('parau_extras')) || [];
+            const eGrid = document.getElementById('adminExtrasGrid');
+            eGrid.innerHTML = '';
+            extras.forEach(e => {
+                eGrid.innerHTML += `
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex justify-between items-center">
+                        <div>
+                            <h4 class="font-bold text-emeraldTheme-dark">${e.name}</h4>
+                            <p class="text-xs text-rubyTheme font-semibold mt-0.5">${e.price} RON</p>
+                        </div>
+                        <div class="space-x-1">
+                            <button onclick="editExtra('${e.id}')" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-xs font-semibold hover:bg-amber-200">Editează</button>
+                            <button onclick="deleteExtra('${e.id}')" class="px-3 py-1 bg-red-100 text-red-800 rounded-lg text-xs font-semibold hover:bg-red-200">Șterge</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Blocked Slots List
+            const blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+            const bList = document.getElementById('blockedSlotsList');
+            bList.innerHTML = '';
+            if(blocked.length === 0) {
+                bList.innerHTML = `<p class="text-xs text-slate-500 italic">Niciun interval orar blocat.</p>`;
+            } else {
+                blocked.forEach(b => {
+                    const formattedBlockedDate = formatDateRo(b.date);
+                    bList.innerHTML += `
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-200 text-sm">
+                            <div>
+                                <span class="font-bold text-emeraldTheme-dark">${formattedBlockedDate}</span>: 
+                                <span class="font-semibold text-rubyTheme">${b.startTime} - ${b.endTime}</span> (Indisponibil)
+                            </div>
+                            <button onclick="removeBlockedSlot('${b.id}')" class="px-3 py-1 bg-red-100 text-red-800 rounded-lg text-xs font-semibold hover:bg-red-200">Deblochează</button>
+                        </div>
+                    `;
+                });
+            }
+
+            // Regulament textarea
+            document.getElementById('regulamentTextInput').value = localStorage.getItem('parau_regulament') || defaultRegulament;
+        }
+
+        // Appointments status update
+        function approveAppointment(id) {
+            const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+            const idx = appointments.findIndex(a => a.id === id);
+            if(idx === -1) return;
+
+            const appointment = appointments[idx];
+            if(appointment.status !== 'În așteptare') return;
+
+            const startTime = (appointment.time || '').split(' - ')[0];
+            const endTime = (appointment.time || '').split(' - ')[1] || '';
+            let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+
+            const conflict = appointments.some((a, i) =>
+                i !== idx && a.date === appointment.date && a.status === 'Confirmată' &&
+                (a.time || '').split(' - ')[0] === startTime
+            ) || blocked.some(b =>
+                b.date === appointment.date && startTime >= b.startTime && startTime < b.endTime
+            );
+
+            if(conflict) {
+                alert("Nu se poate aproba: ora este deja blocată sau confirmată pentru această dată.");
+                renderAdminData();
+                return;
+            }
+
+            appointment.status = 'Confirmată';
+            appointments[idx] = appointment;
+            setStored('parau_appointments', JSON.stringify(appointments));
+
+            // Blocare automată a exact orei aprobate.
+            blocked = blocked.filter(b => !(b.date === appointment.date && b.startTime === startTime && b.endTime === endTime));
+            blocked.push({
+                id: `appointment-${appointment.id}`,
+                date: appointment.date,
+                startTime,
+                endTime,
+                appointmentId: appointment.id,
+                automatic: true
+            });
+            setStored('parau_blocked', JSON.stringify(blocked));
+
+            renderAdminData();
+            fetchAvailableSlots();
+            alert(`Programarea pentru ${formatDateRo(appointment.date)}, ${appointment.time} a fost aprobată și ora a fost blocată automat.`);
+        }
+
+        function updateAppointmentStatus(id, status) {
+            const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+            const idx = appointments.findIndex(a => a.id === id);
+            if(idx !== -1) {
+                const appointment = appointments[idx];
+                appointment.status = status;
+
+                // Dacă o programare confirmată este anulată, eliberează automat ora.
+                if(status === 'Anulat') {
+                    let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+                    blocked = blocked.filter(b => b.appointmentId !== id);
+                    setStored('parau_blocked', JSON.stringify(blocked));
+                }
+
+                setStored('parau_appointments', JSON.stringify(appointments));
+                renderAdminData();
+                fetchAvailableSlots();
+            }
+        }
+
+        function deleteAppointment(id) {
+            if(confirm("Sigur doriți să ștergeți această programare?")) {
+                let appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+                appointments = appointments.filter(a => a.id !== id);
+                setStored('parau_appointments', JSON.stringify(appointments));
+                let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+                blocked = blocked.filter(b => b.appointmentId !== id);
+                setStored('parau_blocked', JSON.stringify(blocked));
+                renderAdminData();
+                fetchAvailableSlots();
+            }
+        }
+
+        // Session Type Modals & CRUD
+        function openSessionModal() {
+            document.getElementById('sessionEditId').value = '';
+            document.getElementById('sessionNameInput').value = '';
+            document.getElementById('sessionDescInput').value = '';
+            document.getElementById('sessionModalTitle').textContent = "Adaugă Tip Ședință";
+            document.getElementById('sessionModal').classList.remove('hidden');
+        }
+        function closeSessionModal() { document.getElementById('sessionModal').classList.add('hidden'); }
+
+        function editSessionType(id) {
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const s = sessions.find(item => item.id === id);
+            if(s) {
+                document.getElementById('sessionEditId').value = s.id;
+                document.getElementById('sessionNameInput').value = s.name;
+                document.getElementById('sessionDescInput').value = s.desc || '';
+                document.getElementById('sessionModalTitle').textContent = "Editează Tip Ședință";
+                document.getElementById('sessionModal').classList.remove('hidden');
+            }
+        }
+
+        function saveSessionType(event) {
+            event.preventDefault();
+            const id = document.getElementById('sessionEditId').value;
+            const name = document.getElementById('sessionNameInput').value;
+            const desc = document.getElementById('sessionDescInput').value;
+            let sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+
+            if(id) {
+                const idx = sessions.findIndex(s => s.id === id);
+                if(idx !== -1) {
+                    sessions[idx].name = name;
+                    sessions[idx].desc = desc;
+                }
+            } else {
+                sessions.push({ id: Date.now().toString(), name, desc });
+            }
+
+            setStored('parau_sessions', JSON.stringify(sessions));
+            closeSessionModal();
+            renderAdminData();
+            renderClientFormDropdowns();
+        }
+
+        function deleteSessionType(id) {
+            if(confirm("Sigur doriți să ștergeți acest tip de ședință?")) {
+                let sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+                sessions = sessions.filter(s => s.id !== id);
+                setStored('parau_sessions', JSON.stringify(sessions));
+                renderAdminData();
+                renderClientFormDropdowns();
+            }
+        }
+
+        // Package Modals & CRUD
+        function openPackageModal() {
+            document.getElementById('packageEditId').value = '';
+            document.getElementById('packageNameInput').value = '';
+            document.getElementById('packagePriceInput').value = '';
+            document.getElementById('packageDescInput').value = '';
+            document.getElementById('packageModalTitle').textContent = "Adaugă Pachet Nou";
+
+            // Populate session select in package modal
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const sel = document.getElementById('packageSessionTypeSelect');
+            sel.innerHTML = '';
+            sessions.forEach(s => {
+                sel.innerHTML += `<option value="${s.id}">${s.name}</option>`;
+            });
+
+            document.getElementById('packageModal').classList.remove('hidden');
+        }
+        function closePackageModal() { document.getElementById('packageModal').classList.add('hidden'); }
+
+        function editPackage(id) {
+            const packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            const p = packages.find(item => item.id === id);
+            if(p) {
+                document.getElementById('packageEditId').value = p.id;
+                document.getElementById('packageNameInput').value = p.name;
+                document.getElementById('packagePriceInput').value = p.price;
+                document.getElementById('packageDescInput').value = p.desc;
+                document.getElementById('packageModalTitle').textContent = "Editează Pachet";
+
+                const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+                const sel = document.getElementById('packageSessionTypeSelect');
+                sel.innerHTML = '';
+                sessions.forEach(s => {
+                    sel.innerHTML += `<option value="${s.id}" ${s.id === p.sessionId ? 'selected' : ''}>${s.name}</option>`;
+                });
+
+                document.getElementById('packageModal').classList.remove('hidden');
+            }
+        }
+
+        function savePackage(event) {
+            event.preventDefault();
+            const id = document.getElementById('packageEditId').value;
+            const sessionId = document.getElementById('packageSessionTypeSelect').value;
+            const name = document.getElementById('packageNameInput').value;
+            const price = parseFloat(document.getElementById('packagePriceInput').value);
+            const desc = document.getElementById('packageDescInput').value;
+
+            let packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            if(id) {
+                const idx = packages.findIndex(p => p.id === id);
+                if(idx !== -1) {
+                    packages[idx] = { id, sessionId, name, price, desc };
+                }
+            } else {
+                packages.push({ id: Date.now().toString(), sessionId, name, price, desc });
+            }
+
+            setStored('parau_packages', JSON.stringify(packages));
+            closePackageModal();
+            renderAdminData();
+            renderSidebarPackages();
+        }
+
+        function deletePackage(id) {
+            if(confirm("Sigur doriți să ștergeți acest pachet?")) {
+                let packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+                packages = packages.filter(p => p.id !== id);
+                setStored('parau_packages', JSON.stringify(packages));
+                renderAdminData();
+                renderSidebarPackages();
+            }
+        }
+
+        // Extra Services Modals & CRUD
+        function openExtraModal() {
+            document.getElementById('extraEditId').value = '';
+            document.getElementById('extraNameInput').value = '';
+            document.getElementById('extraPriceInput').value = '';
+            document.getElementById('extraModalTitle').textContent = "Adaugă Serviciu Extra";
+            document.getElementById('extraModal').classList.remove('hidden');
+        }
+        function closeExtraModal() { document.getElementById('extraModal').classList.add('hidden'); }
+
+        function editExtra(id) {
+            const extras = JSON.parse(localStorage.getItem('parau_extras')) || [];
+            const e = extras.find(item => item.id === id);
+            if(e) {
+                document.getElementById('extraEditId').value = e.id;
+                document.getElementById('extraNameInput').value = e.name;
+                document.getElementById('extraPriceInput').value = e.price;
+                document.getElementById('extraModalTitle').textContent = "Editează Serviciu Extra";
+                document.getElementById('extraModal').classList.remove('hidden');
+            }
+        }
+
+        function saveExtraService(event) {
+            event.preventDefault();
+            const id = document.getElementById('extraEditId').value;
+            const name = document.getElementById('extraNameInput').value;
+            const price = parseFloat(document.getElementById('extraPriceInput').value);
+
+            let extras = JSON.parse(localStorage.getItem('parau_extras')) || [];
+            if(id) {
+                const idx = extras.findIndex(e => e.id === id);
+                if(idx !== -1) {
+                    extras[idx] = { id, name, price };
+                }
+            } else {
+                extras.push({ id: Date.now().toString(), name, price });
+            }
+
+            setStored('parau_extras', JSON.stringify(extras));
+            closeExtraModal();
+            renderAdminData();
+            renderExtrasCheckboxes();
+        }
+
+        function deleteExtra(id) {
+            if(confirm("Sigur doriți să ștergeți acest serviciu extra?")) {
+                let extras = JSON.parse(localStorage.getItem('parau_extras')) || [];
+                extras = extras.filter(e => e.id !== id);
+                setStored('parau_extras', JSON.stringify(extras));
+                renderAdminData();
+                renderExtrasCheckboxes();
+            }
+        }
+
+        // Block Time Slot CRUD
+        function blockTimeSlot(event) {
+            event.preventDefault();
+            const date = document.getElementById('blockDate').value;
+            const startTime = document.getElementById('blockStartTime').value;
+            const endTime = document.getElementById('blockEndTime').value;
+
+            if(startTime >= endTime) {
+                alert("Ora de început trebuie să fie anterioară orei de sfârșit!");
+                return;
+            }
+
+            let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+            blocked.push({ id: Date.now().toString(), date, startTime, endTime });
+            setStored('parau_blocked', JSON.stringify(blocked));
+
+            document.getElementById('blockStartTime').value = '';
+            document.getElementById('blockEndTime').value = '';
+            renderAdminData();
+            alert("Intervalul orar a fost blocat cu succes!");
+        }
+
+        function removeBlockedSlot(id) {
+            let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+            blocked = blocked.filter(b => b.id !== id);
+            setStored('parau_blocked', JSON.stringify(blocked));
+            renderAdminData();
+        }
+
+        // Regulament save
+        function saveRegulament(event) {
+            event.preventDefault();
+            const text = document.getElementById('regulamentTextInput').value;
+            setStored('parau_regulament', text);
+            alert("Regulamentul a fost salvat cu succes!");
+        }
+
+        // Manual Booking Modal
+        function openManualBookingModal() {
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const sel = document.getElementById('manualSessionType');
+            sel.innerHTML = '<option value="">-- Alege --</option>';
+            sessions.forEach(s => {
+                sel.innerHTML += `<option value="${s.name}">${s.name}</option>`;
+            });
+            document.getElementById('manualBookingModal').classList.remove('hidden');
+        }
+
+        function closeManualBookingModal() {
+            document.getElementById('manualBookingModal').classList.add('hidden');
+        }
+
+        function updateManualPackages() {
+            const sessionName = document.getElementById('manualSessionType').value;
+            const sessions = JSON.parse(localStorage.getItem('parau_sessions')) || [];
+            const packages = JSON.parse(localStorage.getItem('parau_packages')) || [];
+            const packageSelect = document.getElementById('manualPackage');
+            packageSelect.innerHTML = '<option value="">-- Alege pachet --</option>';
+
+            const sessionObj = sessions.find(s => s.name === sessionName);
+            if(sessionObj) {
+                const filtered = packages.filter(p => p.sessionId === sessionObj.id);
+                filtered.packages = filtered;
+                filtered.forEach(p => {
+                    packageSelect.innerHTML += `<option value="${p.name} - ${p.price} RON">${p.name} (${p.price} RON)</option>`;
+                });
+            }
+        }
+
+        function saveManualBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('manualName').value;
+            const phone = document.getElementById('manualPhone').value;
+            const sessionType = document.getElementById('manualSessionType').value;
+            const packageVal = document.getElementById('manualPackage').value;
+            const date = document.getElementById('manualDate').value;
+            const time = document.getElementById('manualTime').value;
+            const persons = document.getElementById('manualPersons').value;
+            const outfits = document.getElementById('manualOutfits').value;
+            const details = document.getElementById('manualDetails').value || "Adăugat manual de administrator";
+
+            const appointments = JSON.parse(localStorage.getItem('parau_appointments')) || [];
+            appointments.push({
+                id: Date.now().toString(),
+                name,
+                phone,
+                sessionType,
+                packageVal,
+                date,
+                time: `${time} - (Manual)`,
+                persons,
+                outfits,
+                extras: "Niciunul",
+                details,
+                status: "Confirmată"
+            });
+            setStored('parau_appointments', JSON.stringify(appointments));
+
+            let blocked = JSON.parse(localStorage.getItem('parau_blocked')) || [];
+            const manualStartTime = time;
+            const manualEndTime = `${String(Number(time.split(':')[0]) + 1).padStart(2, '0')}:00`;
+            blocked = blocked.filter(b => !(b.date === date && b.startTime === manualStartTime && b.endTime === manualEndTime));
+            blocked.push({
+                id: `manual-${appointments[appointments.length - 1].id}`,
+                date,
+                startTime: manualStartTime,
+                endTime: manualEndTime,
+                appointmentId: appointments[appointments.length - 1].id,
+                automatic: true
+            });
+            setStored('parau_blocked', JSON.stringify(blocked));
+
+            closeManualBookingModal();
+            renderAdminData();
+            fetchAvailableSlots();
+            alert("Programarea manuală a fost adăugată și ora a fost blocată automat!");
+        }
+    </script>
+</body>
+</html>
